@@ -4,7 +4,7 @@
     "module": "nodenext",
     "outDir": "./dist",
     "declaration": true,
-    "declarationDir": "./types",
+    "declarationDir": "./dist",
     "declarationMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
