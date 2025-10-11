@@ -2,11 +2,7 @@ import "@/styles/globals.css";
 
 import { Azeret_Mono as AzeretMono } from "next/font/google";
 import Script from "next/script";
-
-import { QueryProvider } from "@/providers/query";
 import type { ChildrenProps } from "@/types";
-import AppProvider from "@/providers/AppProvider";
-import { ThemeProvider } from "@/providers/ThemeProvider";
 import { RootProvider } from "@/providers/RootProvider";
 
 export const metadata = {
