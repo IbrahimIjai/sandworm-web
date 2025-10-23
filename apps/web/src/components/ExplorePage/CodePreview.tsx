@@ -1,7 +1,7 @@
 "use client";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@sandworm/ui/components/button";
 
 interface CodePreviewProps {
@@ -39,7 +39,7 @@ export const CodePreview: React.FC<CodePreviewProps> = ({ code, language }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden rounded-lg">
       <div className="overflow-x-auto">
         <SyntaxHighlighter
           language={language}
@@ -79,7 +79,7 @@ export const CodePreview: React.FC<CodePreviewProps> = ({ code, language }) => {
   );
 }
 
-const customTheme = {
+const customTheme: { [key: string]: React.CSSProperties } = {
   'code[class*="language-"]': {
     color: "#2c313c",
     background: "#d4dce5",
@@ -93,7 +93,7 @@ const customTheme = {
     wordWrap: "normal",
     lineHeight: "1.6",
     tabSize: 4,
-    hyphens: "none" as const,
+    hyphens: "none",
   },
   'pre[class*="language-"]': {
     color: "#2c313c",

@@ -1,5 +1,9 @@
 import { Star, GitFork } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@sandworm/ui/components/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@sandworm/ui/components/avatar";
 import { Badge } from "@sandworm/ui/components/badge";
 import { CodePreview } from "./CodePreview";
 import { UserProfileHover } from "./UserProfileHover";
@@ -19,8 +23,8 @@ export function QueryCard({ query, viewMode }: QueryCardProps) {
 
   return (
     <div className={cardClasses}>
-      <div className="p-4">
-        <div className="flex items-start justify-between gap-4">
+      <div className="p-2">
+        <div className="flex items-end justify-between gap-4">
           <div className="flex items-start gap-3 flex-1 min-w-0">
             <Avatar className="h-8 w-8 flex-shrink-0">
               <AvatarImage src={query.author.avatar || "/placeholder.svg"} />
@@ -38,14 +42,7 @@ export function QueryCard({ query, viewMode }: QueryCardProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 flex-shrink-0">
-            <div className="flex items-center gap-2">
-              {query.tags.map(tag => (
-                <Badge key={tag} variant="secondary" className="text-xs">
-                  #{tag}
-                </Badge>
-              ))}
-            </div>
+          <div className="flex flex-col items-end gap-4 flex-shrink-0">
             <div className="flex items-center gap-3 text-sm">
               <span className="flex items-center gap-1">
                 {query.stars}
@@ -55,6 +52,18 @@ export function QueryCard({ query, viewMode }: QueryCardProps) {
                 {query.forks}
                 <GitFork className="h-4 w-4" />
               </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              {query.tags.map(tag => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="text-xs bg-secondary text-muted-foreground"
+                >
+                  #{tag}
+                </Badge>
+              ))}
             </div>
           </div>
         </div>
