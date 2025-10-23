@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@sandworm/ui/components/card";
 import { ScrollArea } from "@sandworm/ui/components/scroll-area";
 
-import { Badge } from "../ui/badge";
+import { Badge } from "@sandworm/ui/components/badge";
 
 import { LandingTextarea } from "./WormAI/LandingTextArea";
 

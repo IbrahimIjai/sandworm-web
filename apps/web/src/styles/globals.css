@@ -153,7 +153,8 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  accent-color: theme("colors.brand.accent");
+  /* Tailwind v4: use an existing color token from @sandworm/ui @theme map */
+  accent-color: theme("colors.accent");
 }
 
 h1 {
@@ -330,14 +331,7 @@ select:-webkit-autofill:focus {
   color: #919e6b !important;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+
 
 /* ════════════ Onbpoarding screens ════════════ */
 .green-gradient {
