@@ -6,10 +6,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import "./fonts.css";
-
+/* 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* ╔════════════════════════════════════════════╗
    ║                Fonts.                      ║
@@ -57,7 +57,7 @@
   );
 }
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -109,7 +109,7 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
+} */
 
 /* ╔════════════════════════════════════════════╗
    ║                Common + Layouts            ║
@@ -133,7 +133,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  accent-color: theme("colors.brand.accent");
+  /* accent-color: theme("colors.brand.accent"); */
 }
 
 h1 {
@@ -310,14 +310,14 @@ select:-webkit-autofill:focus {
   color: #919e6b !important;
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
 
 /* ════════════ Onbpoarding screens ════════════ */
 .green-gradient {
