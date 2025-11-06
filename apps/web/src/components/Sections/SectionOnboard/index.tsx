@@ -1,10 +1,15 @@
+"use client";
+
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import AnimatedTitle from "@/components/Animations/AnimatedTitle";
+import { Button } from "@sandworm/ui/components/button";
+import { useRouter } from "next/navigation";
 
 export const SectionOnboard = () => {
+  const router = useRouter();
   return (
-    <section className="mt-16  px-5 relative bg-black">
+    <section className="pt-16  px-5 relative bg-black">
       <div className="absolute top-0 left-0 h-full w-full">
         <Image src="/img/light-bar.svg" fill alt="unaminated background" />
       </div>
@@ -12,17 +17,19 @@ export const SectionOnboard = () => {
       <div className="  mt-4 py-32 text-center pt-8 pb-48 container mx-auto relative  ">
         <div className="rounded-lg lg:w-[80%] mx-auto p-1">
           <div className="lg:py-28 py-20 lg:px-8 px-4   flex flex-col items-center justify-center">
-            <h1 className="lg:text-[3rem] text-4xl text-white mb-7 uppercase font-bold leading-[1.1] lg:max-w-[600px] ">
-              ACCESS ONCHAIN DATA IN SECONDS, NOT DAYS
-            </h1>
-
-            <Link
-              className="border py-2 bg-white text-black rounded-2xl px-4 text-sm  mt-6 font-medium flex items-center hover:bg-btnHover"
-              href="https://discord.gg/pftQtpcjK2"
-              target="_blank"
+            <AnimatedTitle
+              text="ACCESS ONCHAIN DATA IN SECONDS, NOT DAYS"
+              className="lg:text-[3.8rem] text-4xl text-white mb-7 uppercase leading-[1.1] font-black lg:max-w-[650px] "
+              wordSpace="mr-[14px]"
+              charSpace="mr-[0.0005em]"
+            />
+            <Button
+              type="button"
+              className="rounded-2xl p-2.5 h-fit m-0.5 text-black bg-white px-5 transition-colors duration-200 hover:bg-white/80"
+              onClick={() => router.push("/chat")}
             >
-              Launch App
-            </Link>
+              Get Started
+            </Button>
           </div>
         </div>
       </div>

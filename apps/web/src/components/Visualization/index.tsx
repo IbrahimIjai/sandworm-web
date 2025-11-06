@@ -10,7 +10,7 @@ import {
   ExecutionQueue,
   YBlock,
   VisualizationV2BlockInput,
-  type VisualizationV2Block,
+  VisualizationV2Block,
   BlockType,
   isExecutionStatusLoading,
   getDataframeFromVisualizationV2,
@@ -22,7 +22,7 @@ import { FunnelIcon } from "@heroicons/react/24/outline";
 import type { RefObject } from "react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
-import {
+import type {
   ChartType,
   DataFrame,
   DataFrameColumn,
@@ -32,6 +32,8 @@ import {
   VisualizationFilter,
   YAxis,
   Series,
+} from "@sandworm/types";
+import {
   isInvalidVisualizationFilter,
   NumpyDateTypes,
   exhaustiveCheck,

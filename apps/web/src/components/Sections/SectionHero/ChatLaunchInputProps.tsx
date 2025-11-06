@@ -3,11 +3,12 @@
 import React, { forwardRef } from "react";
 import type { Attachment } from "ai";
 import { PiPaperPlaneTilt } from "react-icons/pi";
-
 import { Button } from "@sandworm/ui/components/button";
 import { Textarea } from "@sandworm/ui/components/textarea";
+
 import { PreviewAttachment } from "@/components/Chats/preview-attachment";
 import { StopIcon } from "@/components/Chats/icons";
+import { Binocular } from "@/components/Assets/Binocular";
 
 // ⬢ Interface ⬢
 // =====================================
@@ -64,15 +65,15 @@ export const ChatLaunchInput = forwardRef<
         )}
 
         {/* ════════════ Textarea ════════════ */}
-        <div className="p-[5px] bg-rainbow-gradient rounded-[28px]">
+        <div className="p-[4.5px] bg-rainbow-gradient rounded-[24px]">
           <Textarea
             ref={ref}
-            placeholder="Start  a  query . . ."
+            placeholder="Start a query..."
             value={input}
             onChange={onInputChange}
             onKeyDown={undefined}
-            className="min-h-[40px] overflow-hidden resize-none  bg-custom-dark-gray  text-sm placeholder:text-sm focus:ring-0 focus:outline-none   scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-zinc-700 py-4 px-8 placeholder:text-neutral-500 placeholder:tracking-wide rounded-[25px] "
-            rows={5}
+            className="min-h-[40px] overflow-hidden resize-none  bg-custom-dark-gray  text-sm placeholder:text-[13px] font-medium focus:ring-0 focus:outline-none   scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-zinc-700 py-4 px-6 placeholder:text-neutral-500 placeholder:tracking-wide rounded-[23px] "
+            rows={4}
           />
         </div>
 
@@ -80,16 +81,17 @@ export const ChatLaunchInput = forwardRef<
         <div className="flex flex-row gap-2 absolute bottom-5 right-5">
           <Button
             type="button"
-            className="rounded-full p-2.5 py-2 h-fit m-0.5 text-sm bg-custom-medium-gray  text-custom-light-gray-2 px-4"
+            className="rounded-full p-2.5 py-[7px] h-fit m-0.5 text-xs bg-custom-medium-gray  text-custom-light-gray-2 px-4 flex"
             onClick={onStop}
           >
-            Deep Research
+            <Binocular className="w-5 h-5" />
+            <span>Deep Research</span>
           </Button>
 
           {isLoading ? (
             <Button
               type="button"
-              className="rounded-full p-2.5 h-fit m-0.5 text-custom-light-gray-2 bg-custom-medium-gray"
+              className="rounded-full p-2 h-fit m-0.5 text-custom-light-gray-2 bg-custom-medium-gray"
               onClick={onStop}
               disabled={disabled}
             >

@@ -5,8 +5,8 @@
    ╚════════════════════════════════════════════╝ */
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-@import "./fonts.css";
-/* 
+@import "./fonts.scss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities; */
@@ -17,6 +17,11 @@
 .font-primary {
   font-family: "Roobert", sans-serif;
   font-weight: 500;
+}
+
+.font-primary.font-semibold {
+  font-family: "Roobert", sans-serif;
+  font-weight: 700;
 }
 
 .font-secondary {
@@ -292,6 +297,7 @@ select:-webkit-autofill:focus {
 .text-effect2 {
   background: linear-gradient(#ff7f4f, #b54324);
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
@@ -366,6 +372,9 @@ select:-webkit-autofill:focus {
   );
   background-size: 200% 200%;
   animation: gradientScroll 4s linear infinite;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -401,13 +410,8 @@ select:-webkit-autofill:focus {
   margin-left: -50px;
 
   path {
-    strokedasharray: 203px, 345px;
+    stroke-dasharray: 203px, 345px;
     stroke-dashoffset: 0;
-    fill: none;
-    stroke: #ea580b;
-    strokewidth: 13;
-    strokelinecap: round;
-    stroke-miterlimit: 10;
     animation: worm 1s linear infinite;
   }
 }
@@ -422,6 +426,47 @@ label {
 
 .line-left-to-right {
   animation: fadeScaleLeftToRight 1s ease-in-out forwards;
+}
+
+/* ════════════ Liquid Glass════════════ */
+.glass-container {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow:
+    0 6px 6px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.glass-filter {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  backdrop-filter: blur(0px);
+  filter: url(#lg-dist);
+  isolation: isolate;
+}
+
+.glass-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.glass-specular {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  overflow: hidden;
+  box-shadow:
+    inset 1px 1px 0 #ffffff50,
+    inset 0 0 2px #868e9699;
 }
 
 /* ════════════ Worm Animations Blockchains ════════════ */
@@ -439,7 +484,9 @@ label {
 .ball {
   position: absolute;
   bottom: 0px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 96px;
   width: 96px;
   background: white;
@@ -448,78 +495,67 @@ label {
   float: left;
   margin-bottom: -30px;
   transform: rotate(-15deg);
-  /* Animations temporarily disabled
+
   -webkit-animation: bounce 3.5s infinite;
   -moz-animation: bounce 3.5s infinite;
   -ms-animation: bounce 3.5s infinite;
   -o-animation: bounce 3.5s infinite;
   animation: bounce 3.5s infinite;
-  */
 }
 
 .ball:nth-child(2) {
   margin-left: 20%;
   margin-bottom: 30px;
   transform: rotate(-5deg);
-  /* Animation delays temporarily disabled
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   -ms-animation-delay: 0.4s;
   -o-animation-delay: 0.4s;
   animation-delay: 0.4s;
-  */
 }
 
 .ball:nth-child(3) {
   margin-left: 40%;
   margin-bottom: 30px;
   transform: rotate(12deg);
-  /* Animation delays temporarily disabled
   -webkit-animation-delay: 0.8s;
   -moz-animation-delay: 0.8s;
   -ms-animation-delay: 0.8s;
   -o-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  */
 }
 
 .ball:nth-child(4) {
   margin-left: 60%;
   margin-bottom: -30px;
   transform: rotate(10deg);
-  /* Animation delays temporarily disabled
   -webkit-animation-delay: 1.2s;
   -moz-animation-delay: 1.2s;
   -ms-animation-delay: 1.2s;
   -o-animation-delay: 1.2s;
   animation-delay: 1.2s;
-  */
 }
 
 .ball:nth-child(5) {
   margin-left: 80%;
   margin-bottom: -30px;
   transform: rotate(2deg);
-  /* Animation delays temporarily disabled
   -webkit-animation-delay: 1.6s;
   -moz-animation-delay: 1.6s;
   -ms-animation-delay: 1.6s;
   -o-animation-delay: 1.6s;
   animation-delay: 1.6s;
-  */
 }
 
 .ball:nth-child(6) {
   margin-left: 100%;
   margin-bottom: 30px;
   transform: rotate(-15deg);
-  /* Animation delays temporarily disabled
   -webkit-animation-delay: 2s;
   -moz-animation-delay: 2s;
   -ms-animation-delay: 2s;
   -o-animation-delay: 2s;
   animation-delay: 2s;
-  */
 }
 
 @keyframes bounce {
